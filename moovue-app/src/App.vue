@@ -1,12 +1,32 @@
 <template>
   <nav>
+    <DarkMode />
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
 </template>
 
+<script>
+import DarkMode from "./components/DarkMode.vue";
+
+export default {
+  name: "App",
+  components: {
+    DarkMode,
+  },
+};
+</script>
+
 <style>
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 dark:bg-slate-800 dark:text-slate-50;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
