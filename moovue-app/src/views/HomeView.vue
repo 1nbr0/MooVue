@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld :movies="movies" />
+    <HelloWorld :movies="movies" @doSearch="doSearch($event)" />
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      search: "",
       movies: null,
     };
   },
@@ -27,10 +28,27 @@ export default {
   },
 
   methods: {
+    doSearch(text) {
+      this.search = text;
+      this.fetchDataAsync();
+    },
     fetchDataAsync: async function () {
-      const response = await axios.get(apiURL);
-      console.log(response.data);
-      this.movies = response.data.results;
+      try {
+        if (this.search !== "") {
+          const apiURL1 =
+            "https://api.themoviedb.org/3/search/movie?api_key=a8259c59f49d490bc078f6c196279508&query=" +
+            this.search;
+          const response = await axios.get(apiURL1);
+          console.log(response.data);
+          this.movies = response.data.results;
+        } else {
+          const response = await axios.get(apiURL);
+          console.log(response.data);
+          this.movies = response.data.results;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

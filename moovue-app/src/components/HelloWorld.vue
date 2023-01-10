@@ -1,5 +1,5 @@
 <template>
-  <div id="demo">
+  <div>
     <div class="block space-y-4 md:flex md:space-y-0 md:space-x-4">
       <!-- Modal toggle -->
     </div>
@@ -10,7 +10,7 @@
     <input
       type="text"
       v-model="search"
-      @keyup.enter="fetchDataAsync"
+      @keyup.enter="doSearch()"
       placeholder="Rechercher un film ..."
     />
 
@@ -50,23 +50,15 @@ export default {
   props: {
     movies: Array,
   },
+  data() {
+    return {
+      search: "",
+    };
+  },
+  methods: {
+    doSearch() {
+      this.$emit("doSearch", this.search);
+    },
+  },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
