@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <DarkMode />
+    <HeaderCustom />
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import DarkMode from "./components/DarkMode.vue";
+import HeaderCustom from "./components/HeaderCustom.vue";
 
 export default {
   name: "App",
   components: {
-    DarkMode,
+    HeaderCustom,
   },
 };
 </script>
