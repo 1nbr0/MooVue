@@ -17,7 +17,7 @@
     <div class="grid gap-4 grid-cols-2 grid-rows-3">
       <div v-for="movie in movies" :key="movie.id">
         <button
-          v-on:click="modalToggle(movie)"
+          v-on:click="$emit('modalToggle', movie)"
           data-modal-target="small-modal"
           data-modal-toggle="small-modal"
           class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
