@@ -16,7 +16,7 @@ import MovieModal from "@/components/MovieModal.vue";
 import axios from "axios";
 
 const apiURL =
-  "https://api.themoviedb.org/3/movie/popular?api_key=a8259c59f49d490bc078f6c196279508";
+  "https://api.themoviedb.org/3/movie/popular?api_key=a8259c59f49d490bc078f6c196279508&language=fr-FR";
 
 export default {
   name: "HomeView",
