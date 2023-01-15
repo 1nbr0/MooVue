@@ -1,9 +1,5 @@
 <template>
-  <nav>
-    <MainHeader />
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <MainHeader />
   <router-view />
 </template>
 
@@ -39,7 +35,6 @@ nav {
 }
 
 nav a {
-  font-weight: bold;
   color: #2c3e50;
 }
 
