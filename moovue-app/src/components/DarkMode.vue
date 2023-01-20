@@ -1,17 +1,10 @@
-<script setup>
-import { useDark, useToggle } from "@vueuse/core";
-
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
-</script>
-
 <template>
   <button
     @click="toggleDark()"
-    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+    class="text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none ring-1 ring-black dark:ring-gray-400 focus:ring-1 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-full text-sm p-2.5"
   >
     <svg
-      v-if="isDark === true"
+      v-if="isDark === false"
       class="w-5 h-5"
       fill="currentColor"
       viewBox="0 0 20 20"
@@ -22,7 +15,7 @@ const toggleDark = useToggle(isDark);
       ></path>
     </svg>
     <svg
-      v-if="isDark === false"
+      v-if="isDark === true"
       class="w-5 h-5"
       fill="currentColor"
       viewBox="0 0 20 20"
@@ -36,3 +29,10 @@ const toggleDark = useToggle(isDark);
     </svg>
   </button>
 </template>
+
+<script setup>
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
+</script>

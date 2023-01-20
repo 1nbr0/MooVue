@@ -1,19 +1,15 @@
 <template>
-  <nav>
-    <DarkMode />
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <MainHeader />
   <router-view />
 </template>
 
 <script>
-import DarkMode from "./components/DarkMode.vue";
+import MainHeader from "./components/MainHeader.vue";
 
 export default {
   name: "App",
   components: {
-    DarkMode,
+    MainHeader,
   },
 };
 </script>
@@ -31,7 +27,6 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -40,7 +35,6 @@ nav {
 }
 
 nav a {
-  font-weight: bold;
   color: #2c3e50;
 }
 
