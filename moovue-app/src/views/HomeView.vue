@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld :movies="movies" @doSearch="doSearch($event)" />
     <MovieList
       :movies="movies"
       @doSearch="doSearch($event)"
@@ -13,7 +11,6 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 import axios from "axios";
 import MovieList from "@/components/MovieList.vue";
 import MovieModal from "@/components/MovieModal.vue";
@@ -26,7 +23,6 @@ export default {
   components: {
     MovieList,
     MovieModal,
-    HelloWorld,
   },
   data() {
     return {
@@ -55,7 +51,8 @@ export default {
         if (this.search !== "") {
           const apiURL1 =
             "https://api.themoviedb.org/3/search/movie?api_key=a8259c59f49d490bc078f6c196279508&query=" +
-            this.search;
+            this.search +
+            "&language=fr-FR";
           const response = await axios.get(apiURL1);
           console.log(response.data);
           this.movies = response.data.results;
@@ -70,7 +67,7 @@ export default {
     },
     modalToggle(movie) {
       this.modalData = {
-        title: movie.original_title,
+        title: movie.title,
         text: movie.overview,
         img: movie.poster_path,
         rate: movie.vote_average,
