@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld :movies="movies" @doSearch="doSearch($event)" />
     <MovieList
       :movies="movies"
       @doSearch="doSearch($event)"
@@ -11,9 +13,10 @@
 
 <script>
 // @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
+import axios from "axios";
 import MovieList from "@/components/MovieList.vue";
 import MovieModal from "@/components/MovieModal.vue";
-import axios from "axios";
 
 const apiURL =
   "https://api.themoviedb.org/3/movie/popular?api_key=a8259c59f49d490bc078f6c196279508&language=fr-FR";
@@ -23,6 +26,7 @@ export default {
   components: {
     MovieList,
     MovieModal,
+    HelloWorld,
   },
   data() {
     return {
